@@ -1,5 +1,5 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
-import { NEXT_PUBLIC_URL } from './config.js';
+import { NEXT_PUBLIC_URL, image } from './config.js';
 
 console.log(NEXT_PUBLIC_URL)
 // import type { Metadata } from 'next';
@@ -22,7 +22,7 @@ const frameMetadata = getFrameMetadata({
     },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/forcaster.png`,
+    src: image,
     aspectRatio: '1:1',
   },
   input: {
@@ -37,7 +37,7 @@ export const metadata = {
   openGraph: {
     title: 'forcaster',
     description: 'a frame for weather forcasts',
-    images: [`${NEXT_PUBLIC_URL}/forcaster.png`],
+    images: [image],
   },
   other: {
     ...frameMetadata,
