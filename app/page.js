@@ -1,12 +1,13 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
+import { NEXT_PUBLIC_URL } from './config';
 // import type { Metadata } from 'next';
 
-const NEXT_PUBLIC_URL = 'http://localhost:3000';
+// const NEXT_PUBLIC_URL = 'http://localhost:3000';
 
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Show me the weather',
+      label: 'current',
     },
     {
       // action: 'link',
@@ -29,12 +30,12 @@ const frameMetadata = getFrameMetadata({
 });
 
 export const metadata = {
-  title: 'zizzamia.xyz',
-  description: 'LFG',
+  title: 'forcaster',
+  description: 'a frame for weather forcasts',
   openGraph: {
-    title: 'zizzamia.xyz',
-    description: 'LFG',
-    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
+    title: 'forcaster',
+    description: 'a frame for weather forcasts',
+    images: [`${NEXT_PUBLIC_URL}/forcaster.png`],
   },
   other: {
     ...frameMetadata,
