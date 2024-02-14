@@ -48,7 +48,7 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <h1>Forcaster</h1>
+      <h1>Forcaster. A frame for getting forcasts.</h1>
     </>
   );
 }
