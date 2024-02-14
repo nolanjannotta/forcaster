@@ -26,7 +26,7 @@ const frameMetadata = getFrameMetadata({
     aspectRatio: '1:1',
   },
   input: {
-    text: 'enter a city',
+    text: 'enter a city, zip code, or location',
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
 });
