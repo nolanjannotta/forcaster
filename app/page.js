@@ -9,7 +9,6 @@ const frameMetadata = getFrameMetadata({
   buttons: [
     {
       label: 'current',
-      action: 'post',
     },
     {
       // action: 'link',
