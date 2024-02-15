@@ -17,7 +17,6 @@ const city = "los angeles";
 async function getResponse(request) {
 
   const body = await request.json();
-  console.log(request)
   let text;
 
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: process.env.NEYNAR_KEY});
@@ -40,9 +39,9 @@ async function getResponse(request) {
 
 
 
-  const options = ["current.json?", "forecast.json?", "forecast.json?days=7&"]
-  const response = await fetch(`http://api.weatherapi.com/v1/${options[1]}q=${city}&key=${process.env.WEATHER_KEY}`);
-  const forcast = await response.json();
+  // const options = ["current.json?", "forecast.json?", "forecast.json?days=7&"]
+  // const response = await fetch(`http://api.weatherapi.com/v1/${options[1]}q=${city}&key=${process.env.WEATHER_KEY}`);
+  // const forcast = await response.json();
 
   
 
@@ -59,10 +58,13 @@ async function getResponse(request) {
       postUrl: `${NEXT_PUBLIC_URL}/api/forcaster`,
     })
   );
+
 }
 
 export async function POST(request) {
   return getResponse(request);
 }
+
+
 
 export const dynamic = "force-dynamic";
