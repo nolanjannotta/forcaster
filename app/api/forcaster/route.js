@@ -54,7 +54,7 @@ async function getResponse(request) {
       image: {
         src: image,
       },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+      postUrl: `${NEXT_PUBLIC_URL}/api/forcaster`,
     })
   );
 }

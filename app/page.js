@@ -28,7 +28,7 @@ const frameMetadata = getFrameMetadata({
   input: {
     text: 'city, zip code, or location',
   },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+  postUrl: `${NEXT_PUBLIC_URL}/api/forcaster`,
 });
 
 export const metadata = {
