@@ -19,15 +19,15 @@ async function getResponse(request) {
   // const body = await request.json();
   let text;
   console.log(request)
-  const { isValid, message } = await getFrameMessage(body, { neynarApiKey: process.env.NEYNAR_KEY});
+  // const { isValid, message } = await getFrameMessage(body, { neynarApiKey: process.env.NEYNAR_KEY});
 
   // if (isValid) {
   //   accountAddress = message.interactor.verified_accounts[0];
   // }
 
-  if (message?.input) {
-    text = message.input;
-  }
+  // if (message?.input) {
+  //   text = message.input;
+  // }
 
 
   // if (message?.button === 3) {
