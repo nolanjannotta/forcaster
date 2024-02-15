@@ -17,6 +17,9 @@ const city = "los angeles";
 async function getResponse(request) {
 
   const body = await request.json();
+  console.log(request)
+  let text;
+
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: process.env.NEYNAR_KEY});
 
   // if (isValid) {
@@ -28,14 +31,13 @@ async function getResponse(request) {
   }
 
 
-  if (message?.button === 3) {
-    return NextResponse.redirect(
-      'https://www.google.com/search?q=cute+dog+pictures&tbm=isch&source=lnms',
-      { status: 302 },
-    );
-  }
+  // if (message?.button === 3) {
+  //   return NextResponse.redirect(
+  //     'https://www.google.com/search?q=cute+dog+pictures&tbm=isch&source=lnms',
+  //     { status: 302 },
+  //   );
+  // }
 
-  console.log(body)
 
 
   const options = ["current.json?", "forecast.json?", "forecast.json?days=7&"]
@@ -48,7 +50,7 @@ async function getResponse(request) {
     getFrameHtmlResponse({
       buttons: [
         {
-          label: 'back',
+          label: text,
         },
       ],
       image: {
