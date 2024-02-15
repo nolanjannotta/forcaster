@@ -16,9 +16,9 @@ const city = "los angeles";
 
 async function getResponse(request) {
 
-  const body = await request.json();
+  // const body = await request.json();
   let text;
-
+  console.log(request)
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: process.env.NEYNAR_KEY});
 
   // if (isValid) {

@@ -1,7 +1,6 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import { NEXT_PUBLIC_URL, image } from './config.js';
 
-console.log(NEXT_PUBLIC_URL)
 // import type { Metadata } from 'next';
 
 // const NEXT_PUBLIC_URL = 'http://localhost:3000';
