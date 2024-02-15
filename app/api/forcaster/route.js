@@ -17,6 +17,24 @@ const city = "los angeles";
 async function getResponse(request) {
 
   const body = await request.json();
+  const { isValid, message } = await getFrameMessage(body, { neynarApiKey: process.env.NEYNAR_KEY});
+
+  // if (isValid) {
+  //   accountAddress = message.interactor.verified_accounts[0];
+  // }
+
+  if (message?.input) {
+    text = message.input;
+  }
+
+
+  if (message?.button === 3) {
+    return NextResponse.redirect(
+      'https://www.google.com/search?q=cute+dog+pictures&tbm=isch&source=lnms',
+      { status: 302 },
+    );
+  }
+
   console.log(body)
 
 
