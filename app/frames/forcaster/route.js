@@ -6,7 +6,7 @@ import {
 } from "@coinbase/onchainkit";
 import { NEXT_PUBLIC_URL} from '../../config';
 import sharp from "sharp";
-import {convertImageToBase64,dayOfWeek} from "../../helpers.js"
+import {encodePNG, dayOfWeek} from "../../helpers.js"
 
 
 async function getResponse(request) {
@@ -21,7 +21,6 @@ async function getResponse(request) {
 
 
   
-  let icon = await convertImageToBase64(`https:${forecast.current.condition.icon}`);
 
 
     let svg = "<svg width='1200' height='630' xmlns='http://www.w3.org/2000/svg'><rect stroke='black' stroke-width='3' width='1200' height='630' fill='none'></rect>"
@@ -38,7 +37,7 @@ async function getResponse(request) {
 
     // current weather 
     if(body.untrustedData.buttonIndex == 1) {
-      let icon = await convertImageToBase64(`https:${forecast.current.condition.icon}`);
+      let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
       svg = `${svg}<text x="600" y="70" text-anchor="middle" font-size="70">Current weather for</text>
         <text x="600" y="150" text-anchor="middle" font-size="70">${forecast.location.name}, ${forecast.location.region}</text>
         <text x="600" y="230" text-anchor="middle" font-size="70">${forecast.location.country}</text>
@@ -56,7 +55,7 @@ async function getResponse(request) {
       let startingCenter = 85.7;
       let width = 171.4;
       for(let [index, day] of forecast.forecast.forecastday.entries()) {
-        icon = await convertImageToBase64(`https:${day.day.condition.icon}`);
+        let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
         svg = `${svg}
         <text x="${startingCenter + (width*index)}" y="250" text-anchor="middle" font-size="30">${dayOfWeek(day.date)}</text>
         <text x="${startingCenter + (width*index)}" y="290" text-anchor="middle" font-size="25"> High:</text>
@@ -65,6 +64,7 @@ async function getResponse(request) {
         <text x="${startingCenter + (width*index)}" y="395" text-anchor="middle" font-size="25">${day.day.mintemp_f}°F/${day.day.mintemp_c}°C</text>
         <text x="${startingCenter + (width*index)}" y="430" text-anchor="middle" font-size="25">${day.day.condition.text}</text>'
         <image height="100" width="100" x="${startingCenter + (width*index) - 50}" y="440" href="${icon}"></image>
+
         <line  x1="${(width*index)}" x2="${(width*index)}" y1="230" y2="580" stroke="black"></line>
         `
       }
@@ -84,7 +84,7 @@ async function getResponse(request) {
       for(let forecastday of forecast.forecast.forecastday) {
         for(let hour of forecastday.hour) {
           let time = new Date(hour.time).getTime()
-          icon = await convertImageToBase64(`https:${hour.condition.icon}`);
+          let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
 
           if(time > localTime-3600000 && hourCounter<12){
             svg = `${svg}
@@ -94,8 +94,8 @@ async function getResponse(request) {
               <text x="${x}" y="${y + 100}" text-anchor="middle" font-size="30">${hour.condition.text}</text>
               <image height="100" width="100" x="${x-50}" y="${y + 100}" href="${icon}"></image>
 
+
             `
-            
             x += 200
              hourCounter ++;
 
