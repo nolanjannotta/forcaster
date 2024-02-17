@@ -5,49 +5,36 @@ import { NEXT_PUBLIC_URL, image } from './config.js';
 
 // const NEXT_PUBLIC_URL = 'http://localhost:3000';
 
-const frameMetadata = getFrameMetadata({
-  buttons: [
-    {
-      label: 'current',
-    },
-    {
-      // action: 'link',
-      label: '7 day',
-      // target: 'https://www.google.com',
-    },
-    {
-      label: '24 hour',
-      // action: 'post_redirect',
-    },
-  ],
-  image: {
-    src: image,
-    aspectRatio: '1:1',
-  },
-  input: {
-    text: 'city, zip code, or location',
-  },
-  postUrl: `${NEXT_PUBLIC_URL}/api/forcaster`,
-});
+// const frameMetadata = getFrameMetadata({
+//   buttons: [{label: 'current'},{label: '7 day'},{label: '12 hour'}],
+//   image: {
+//     src: image,
+//     aspectRatio: '1:1',
+//   },
+//   input: {
+//     text: 'city, zip code, or location',
+//   },
+//   postUrl: `${NEXT_PUBLIC_URL}/api/forcaster`,
+// });
 
 export const metadata = {
-  title: 'forcaster',
-  description: 'a frame for weather forcasts',
+  title: 'frames by nolan',
+  description: 'collection of random frames',
   openGraph: {
-    title: 'forcaster',
-    description: 'a frame for weather forcasts',
+    title: 'frames by nolan',
+    description: 'collection of random frames',
     images: [image],
   },
-  other: {
-    ...frameMetadata,
-  },
+  // other: {
+  //   ...frameMetadata,
+  // },
 };
 
 
 export default function Page() {
   return (
     <>
-      <h1>Forcaster. A frame for getting forcasts.</h1>
+      <h1>Just some frames, thats it. </h1>
     </>
   );
 }

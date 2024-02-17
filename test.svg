@@ -1,0 +1,7 @@
+<svg width='1200' height='630' xmlns='http://www.w3.org/2000/svg'><rect stroke='black' stroke-width='3' width='1200' height='630' fill='none'></rect><text x="600" y="70" text-anchor="middle" font-size="70">Current weather for</text>
+        <text x="600" y="150" text-anchor="middle" font-size="70">Los Angeles, California</text>
+        <text x="600" y="230" text-anchor="middle" font-size="70">United States of America</text>
+        <text x="600" y="370" text-anchor="middle" font-size="50"> Temp: 59°F/15°C</text>
+        <text x="600" y="430" text-anchor="middle" font-size="50"> Condition: Overcast</text>'
+        <image height="150" width="150" x="525" y="450" href="https://cdn.weatherapi.com/weather/64x64/night/122.png"></image>
+        </svg>
