@@ -131,7 +131,7 @@ async function getResponse(request) {
       image: {
         src: base64Img,
       },
-      postUrl: `${NEXT_PUBLIC_URL}/forcaster`,
+      postUrl: `${NEXT_PUBLIC_URL}/forecaster`,
     })
   );
 
