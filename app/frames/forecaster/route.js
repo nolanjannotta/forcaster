@@ -4,7 +4,7 @@ import {
   getFrameMessage,
   getFrameHtmlResponse,
 } from "@coinbase/onchainkit";
-import { NEXT_PUBLIC_URL} from '../../config';
+import { NEXT_PUBLIC_URL} from '../../config.js';
 import sharp from "sharp";
 import {encodePNG, dayOfWeek} from "../../helpers.js"
 
