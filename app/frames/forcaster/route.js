@@ -4,41 +4,14 @@ import {
   getFrameMessage,
   getFrameHtmlResponse,
 } from "@coinbase/onchainkit";
-import { NEXT_PUBLIC_URL, image } from '../../config';
-import {forcaster} from '../../images';
+import { NEXT_PUBLIC_URL} from '../../config';
 import sharp from "sharp";
 import {convertImageToBase64,dayOfWeek} from "../../helpers.js"
 
-// const sharp = require('sharp');
-
-
-// const NEXT_PUBLIC_URL = "http://localhost:3000";
-
-
-// button 1 = current
-// button 2 = 7 day
-// button 3 = 24 hour
 
 async function getResponse(request) {
 
   const body = await request.json();
-  let text;
-  // console.log(body.untrustedData)
-
-
-
-  if (body?.untrustedData.inputText) {
-    text = body.untrustedData.inputText;
-  }
-
-
-  // if (message?.button === 3) {
-  //   return NextResponse.redirect(
-  //     'https://www.google.com/search?q=cute+dog+pictures&tbm=isch&source=lnms',
-  //     { status: 302 },
-  //   );
-  // }
-
 
 
   const options = ["current.json?", "forecast.json?days=7&", "forecast.json?days=2&"]
@@ -65,7 +38,7 @@ async function getResponse(request) {
 
     // current weather 
     if(body.untrustedData.buttonIndex == 1) {
-      console.log(forecast.current)
+      let icon = await convertImageToBase64(`https:${forecast.current.condition.icon}`);
       svg = `${svg}<text x="600" y="70" text-anchor="middle" font-size="70">Current weather for</text>
         <text x="600" y="150" text-anchor="middle" font-size="70">${forecast.location.name}, ${forecast.location.region}</text>
         <text x="600" y="230" text-anchor="middle" font-size="70">${forecast.location.country}</text>
@@ -103,7 +76,6 @@ async function getResponse(request) {
         <text x="600" y="70" text-anchor="middle" font-size="70">${forecast.location.name}, ${forecast.location.region}</text>
         <text x="600" y="150" text-anchor="middle" font-size="70">${forecast.location.country}</text>`
       
-      let startingCenter = 100;
       let x = 100;
       let y = 210
       let hourCounter = 0;
@@ -146,24 +118,6 @@ async function getResponse(request) {
 
     const base64Img = `data:image/png;base64,${img.toString('base64')}`;
     
-
-
-  
-  // this is where we need to make images based on which button was pressed
-  // all will display the location the user searched for 
-
-
-  // one image for curent weather
-
-  // one image for 24 hour 
-
-  // one image for 7 days
-
-
-
-
-
-
   
 
   return new NextResponse(
