@@ -77,7 +77,7 @@ async function getResponse(request) {
         let width = 171.4;
         for(let [index, day] of forecast.forecast.forecastday.entries()) {
             const lines = wordWrap(day.day.condition.text, 15)
-            let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
+            let icon = await  encodePNG(`https:${day.day.condition.icon}`);
             svg = `${svg}
             <text x="${startingCenter + (width*index)}" y="250" text-anchor="middle" font-size="30">${dayOfWeek(day.date)}</text>
             <text x="${startingCenter + (width*index)}" y="290" text-anchor="middle" font-size="25"> High:</text>
@@ -117,13 +117,13 @@ async function getResponse(request) {
 
                 if(dateTime.getTime() > localTime-3600000 && hourCounter<12){
                     const lines = wordWrap(hour.condition.text, 15)
-                    let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
+                    let icon = await  encodePNG(`https:${hour.condition.icon}`);
 
                     svg = `${svg}
                         <text x="${x}" y="${y}" text-anchor="middle" font-size="30">${(time % 12) == 0 ? 12 : time % 12} ${time<12 ? "am" : "pm"}</text>
                         <text x="${x}" y="${y + 35}" text-anchor="middle" font-size="30">${hour.temp_f}°F</text>
                         <text x="${x}" y="${y + 70}" text-anchor="middle" font-size="30">${hour.temp_c}°C</text>
-                        <image height="100" width="100" x="${x-50}" y="${y + 155}" href="${icon}"></image>`
+                        <image height="90" width="90" x="${x-45}" y="${y + 155}" href="${icon}"></image>`
                     lines.forEach((line, index)=>{
                         svg =  `${svg}<text x="${x}" y="${y + 110 + (30*index)}" text-anchor="middle" font-size="30">${line}</text>`
                     })
