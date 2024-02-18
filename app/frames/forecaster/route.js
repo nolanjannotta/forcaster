@@ -157,7 +157,7 @@ async function getResponse(request) {
         getFrameHtmlResponse({
             buttons: [{label: "back"}],
             image: {src: base64Img},
-            postUrl: `${NEXT_PUBLIC_URL}/forecaster`,
+            postUrl: `${NEXT_PUBLIC_URL}/frames/forecaster`,
         })
     );
 
