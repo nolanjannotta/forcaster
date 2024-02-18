@@ -120,7 +120,7 @@ async function getResponse(request) {
                     let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
 
                     svg = `${svg}
-                        <text x="${x}" y="${y}" text-anchor="middle" font-size="30">${time == 0 ? 12 : time % 12} ${time<12 ? "am" : "pm"}</text>
+                        <text x="${x}" y="${y}" text-anchor="middle" font-size="30">${(time % 12) == 0 ? 12 : time % 12} ${time<12 ? "am" : "pm"}</text>
                         <text x="${x}" y="${y + 35}" text-anchor="middle" font-size="30">${hour.temp_f}°F</text>
                         <text x="${x}" y="${y + 70}" text-anchor="middle" font-size="30">${hour.temp_c}°C</text>
                         <image height="100" width="100" x="${x-50}" y="${y + 155}" href="${icon}"></image>`
