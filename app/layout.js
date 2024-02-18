@@ -1,7 +1,8 @@
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
  
-// If loading a variable font, you don't need to specify the font weight
-const inter = Inter({ subsets: ['latin'] })
+const font = Roboto({ 
+  subsets: ['latin'],
+  weight:["400", "700"] })
 
 
 
@@ -13,8 +14,9 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className} >{children}
+    <html lang="en" className={font.className}>
+      <body  >
+        {children}
       {/* <a target="blank" href="https://warpcast.com/nolanj">follow meeeeee</a> */}
       </body>
     </html>
