@@ -25,3 +25,36 @@ import fs from 'fs';
     const dayOfWeek = new Date(date).getDay();    
     return ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'][dayOfWeek];
   }
+
+
+
+
+
+  export function wordWrap(words, characters) {
+    words = words.trim()
+
+    if(words.length < characters) {
+      return [words]
+    }
+    
+    const wordsArr = words.split(" ")
+    const lines = []
+    let currentLine = "";
+    
+    while(wordsArr.length > 0) {
+        let nextWord = wordsArr.shift()
+    
+        if(currentLine.length + nextWord.length <=characters) {
+            currentLine = currentLine.concat(nextWord, " ")
+        }
+        else {
+            lines.push(currentLine.trim())
+            currentLine = nextWord
+        }
+        if(wordsArr.length == 0) {
+            lines.push(currentLine)
+        }
+
+    }
+    return lines
+}
