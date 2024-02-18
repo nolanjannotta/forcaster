@@ -9,7 +9,6 @@ const frameMetadata = getFrameMetadata({
   buttons: [{label: 'current'},{label: '7 day'},{label: '12 hour'}],
   image: {
     src: forcaster,
-    aspectRatio: '1:1',
   },
   input: {
     text: 'city, zip code, or location',
