@@ -1,17 +1,3 @@
-// import { createCanvas, loadImage } from "canvas"
-import fs from 'fs';
-// import fetch from "node-fetch"
-
-// export async function convertImageToBase64(imgUrl) {
-//     const canvas = createCanvas();
-//     const ctx = canvas.getContext('2d');
-//     canvas.height = 64;
-//     canvas.width = 64;
-//     let image = await loadImage(imgUrl)
-//     ctx.drawImage(image, 0, 0);
-//     return canvas.toDataURL();
-
-//   }
 
   export async function encodePNG(url) {
     let response = await fetch(url)

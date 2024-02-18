@@ -75,7 +75,6 @@ async function getResponse(request) {
         `
         let startingCenter = 85.7;
         let width = 171.4;
-        console.log(forecast.forecast.forecastday)
         for(let [index, day] of forecast.forecast.forecastday.entries()) {
             const lines = wordWrap(day.day.condition.text, 15)
             let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
@@ -116,27 +115,27 @@ async function getResponse(request) {
             let time = dateTime.getHours();
 
 
-            if(dateTime.getTime() > localTime-3600000 && hourCounter<12){
-                const lines = wordWrap(hour.condition.text, 15)
-                let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
+                if(dateTime.getTime() > localTime-3600000 && hourCounter<12){
+                    const lines = wordWrap(hour.condition.text, 15)
+                    let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
 
-                svg = `${svg}
-                    <text x="${x}" y="${y}" text-anchor="middle" font-size="30">${time == 0 ? 12 : time % 12} ${time<12 ? "am" : "pm"}</text>
-                    <text x="${x}" y="${y + 35}" text-anchor="middle" font-size="30">${hour.temp_f}°F</text>
-                    <text x="${x}" y="${y + 70}" text-anchor="middle" font-size="30">${hour.temp_c}°C</text>
-                    <image height="100" width="100" x="${x-50}" y="${y + 155}" href="${icon}"></image>`
-                lines.forEach((line, index)=>{
-                    svg =  `${svg}<text x="${x}" y="${y + 110 + (30*index)}" text-anchor="middle" font-size="30">${line}</text>`
-                })
+                    svg = `${svg}
+                        <text x="${x}" y="${y}" text-anchor="middle" font-size="30">${time == 0 ? 12 : time % 12} ${time<12 ? "am" : "pm"}</text>
+                        <text x="${x}" y="${y + 35}" text-anchor="middle" font-size="30">${hour.temp_f}°F</text>
+                        <text x="${x}" y="${y + 70}" text-anchor="middle" font-size="30">${hour.temp_c}°C</text>
+                        <image height="100" width="100" x="${x-50}" y="${y + 155}" href="${icon}"></image>`
+                    lines.forEach((line, index)=>{
+                        svg =  `${svg}<text x="${x}" y="${y + 110 + (30*index)}" text-anchor="middle" font-size="30">${line}</text>`
+                    })
 
-                x += 200
-                hourCounter ++;
+                    x += 200
+                    hourCounter ++;
 
-                if(hourCounter == 6) {
-                    y = 380
-                    x = 100
+                    if(hourCounter == 6) {
+                        y = 380
+                        x = 100
+                    }
                 }
-            }
             }
 
         }
