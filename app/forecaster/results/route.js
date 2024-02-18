@@ -116,7 +116,7 @@ async function getResponse(request) {
 
 
                 if(dateTime.getTime() > localTime-3600000 && hourCounter<12){
-                    const lines = wordWrap(hour.condition.text, 15)
+                    const lines = wordWrap(hour.condition.text, 12)
                     let icon = await  encodePNG(`https:${hour.condition.icon}`);
 
                     svg = `${svg}

@@ -1,8 +1,7 @@
-import { Roboto } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
  
-const font = Roboto({ 
-  subsets: ['latin'],
-  weight:["400", "700"] })
+const font = Montserrat({ 
+  subsets: ['latin'] })
 
 
 
