@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import {getFrameHtmlResponse,} from "@coinbase/onchainkit";
+import {getFrameHtmlResponse} from "@coinbase/onchainkit";
 import { NEXT_PUBLIC_URL} from '../../config.js';
 import { tryDifferentPlace,errorImage} from '../../images.js';
 import sharp from "sharp";
@@ -27,7 +27,7 @@ async function getResponse(request) {
                 getFrameHtmlResponse({
                     buttons: [{label: "back"}],
                     image: {src: errorImage},
-                    postUrl: `${NEXT_PUBLIC_URL}/forecaster`,
+                    postUrl: `${NEXT_PUBLIC_URL}/forecaster/search`,
                 })
             );
         
@@ -156,7 +156,7 @@ async function getResponse(request) {
         getFrameHtmlResponse({
             buttons: [{label: "back"}],
             image: {src: base64Img},
-            postUrl: `${NEXT_PUBLIC_URL}/forecaster`,
+            postUrl: `${NEXT_PUBLIC_URL}/forecaster/search`,
         })
     );
 

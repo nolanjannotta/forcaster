@@ -10,7 +10,7 @@ const frameMetadata = getFrameMetadata({
   input: {
     text: 'city, zip code, or location',
   },
-  postUrl: `${NEXT_PUBLIC_URL}/frames/forecaster`,
+  postUrl: `${NEXT_PUBLIC_URL}/forecaster/results`,
 });
 
 export const metadata = {
@@ -19,7 +19,7 @@ export const metadata = {
   openGraph: {
     title: 'forecaster',
     description: 'frame for getting forecasts',
-    images: [forecaster],
+    images: [forecaster], 
   },
   other: {
     ...frameMetadata,
@@ -27,10 +27,11 @@ export const metadata = {
 };
 
 
+
 export default function Page() {
   return (
     <>
-      <h1>Forcaster frame</h1>
+      <h1>Forecaster frame</h1>
 
     </>
   );

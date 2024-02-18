@@ -7,7 +7,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>{children}
-      <a target="blank" href="https://warpcast.com/nolanj">follow meeeeee</a>
+      {/* <a target="blank" href="https://warpcast.com/nolanj">follow meeeeee</a> */}
       </body>
     </html>
   );

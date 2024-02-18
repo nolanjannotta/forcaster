@@ -1,4 +1,3 @@
-import {forcaster } from './images.js';
 
 export const metadata = {
   title: 'frames by nolan',
@@ -6,7 +5,6 @@ export const metadata = {
   openGraph: {
     title: 'frames by nolan',
     description: 'collection of random frames',
-    images: [forcaster],
   },
 
 };
