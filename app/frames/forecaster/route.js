@@ -24,11 +24,11 @@ async function getResponse(request) {
         catch {
             
             return new NextResponse(
-            getFrameHtmlResponse({
-                buttons: [{label: "back"}],
-                image: {src: errorImage},
-                postUrl: `${NEXT_PUBLIC_URL}/forecaster`,
-            })
+                getFrameHtmlResponse({
+                    buttons: [{label: "back"}],
+                    image: {src: errorImage},
+                    postUrl: `${NEXT_PUBLIC_URL}/forecaster`,
+                })
             );
         
         }
