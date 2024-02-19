@@ -39,7 +39,7 @@ async function getResponse(request) {
   
 
 
-    let svg = "<svg width='1200' height='630' xmlns='http://www.w3.org/2000/svg'><rect stroke='black' stroke-width='3' width='1200' height='630' fill='none'></rect>"
+    let svg = "<svg width='1200' height='630' xmlns='http://www.w3.org/2000/svg'><rect stroke='black' stroke-width='3' width='1200' height='630' fill='white'></rect>"
     
 
     // incase no text input was sent or in case an invalid location was sent
