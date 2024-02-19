@@ -11,6 +11,7 @@ export const metadata = {
 
 
 export default function Page() {
+  console.log("hello")
   return (
     <>
       <h1>Just some frames, thats it. </h1>

@@ -58,11 +58,15 @@ async function getResponse(request) {
     // current weather 
     if(body.untrustedData.buttonIndex == 1) {
         let icon = await encodePNG(`https:${forecast.current.condition.icon}`);
-        svg = `${svg}<text x="600" y="70" text-anchor="middle" font-size="70">Current weather for</text>
-            <text x="600" y="150" text-anchor="middle" font-size="70">${forecast.location.name}, ${forecast.location.region}</text>
-            <text x="600" y="230" text-anchor="middle" font-size="70">${forecast.location.country}</text>
-            <text x="600" y="370" text-anchor="middle" font-size="50"> Temp: ${forecast.current.temp_f}°F/${forecast.current.temp_c}°C</text>
-            <text x="600" y="430" text-anchor="middle" font-size="50"> Condition: ${forecast.current.condition.text}</text>'
+        // <text x="600" y="70" text-anchor="middle" font-size="70">Current weather for</text>
+        svg = `${svg}
+        
+            <text x="600" y="70" text-anchor="middle" font-size="70">${forecast.location.name}, ${forecast.location.region}</text>
+            <text x="600" y="150" text-anchor="middle" font-size="70">${forecast.location.country}</text>
+            <text x="600" y="240" text-anchor="middle" font-size="50">Wind: ${forecast.current.wind_mph}mph / ${forecast.current.wind_kph}kph ${forecast.current.wind_dir} </text>
+            <text x="600" y="310" text-anchor="middle" font-size="50"> Temp: ${forecast.current.temp_f}°F/${forecast.current.temp_c}°C</text>
+            <text x="600" y="380" text-anchor="middle" font-size="50"> Condition: ${forecast.current.condition.text}</text>'
+
             <image height="150" width="150" x="525" y="450" href="${icon}"></image>
             `
     }
