@@ -49,7 +49,7 @@ async function getResponse(request) {
             getFrameHtmlResponse({
                 buttons: [{label: "back"}],
                 image: {src: tryDifferentPlace},
-                postUrl: `${NEXT_PUBLIC_URL}/forecaster`,
+                postUrl: `${NEXT_PUBLIC_URL}/forecaster/search`,
             })
         );
     }
