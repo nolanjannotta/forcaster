@@ -1,2 +1,2 @@
-export const NEXT_PUBLIC_URL = ".vercel.apphttps://frames-nolanjannotta";
+export const NEXT_PUBLIC_URL = "https://frames-nolanjannotta.vercel.app";
 

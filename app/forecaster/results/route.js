@@ -40,12 +40,15 @@ async function getResponse(request) {
 
 
     let svg = "<svg width='1200' height='630' xmlns='http://www.w3.org/2000/svg'><rect stroke='black' stroke-width='3' width='1200' height='630' fill='none'></rect>"
-
+    
+    // let svgTest = SVG().addTo('body')
+    // svgTest.size(1200,630).rect(1200, 630).attr({stroke:"black", strokeWidth: '3', fill: 'none' });
+    // console.log(svgTest);             
 
 
     // incase no text input was sent or in case an invalid location was sent
     if(forecast.error) {
-
+    
         return new NextResponse(
             getFrameHtmlResponse({
                 buttons: [{label: "back"}],
@@ -58,7 +61,7 @@ async function getResponse(request) {
 
     // current weather 
     if(body.untrustedData.buttonIndex == 1) {
-        let icon = await  encodePNG(`https:${forecast.current.condition.icon}`);
+        let icon = await encodePNG(`https:${forecast.current.condition.icon}`);
         svg = `${svg}<text x="600" y="70" text-anchor="middle" font-size="70">Current weather for</text>
             <text x="600" y="150" text-anchor="middle" font-size="70">${forecast.location.name}, ${forecast.location.region}</text>
             <text x="600" y="230" text-anchor="middle" font-size="70">${forecast.location.country}</text>
