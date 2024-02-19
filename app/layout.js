@@ -1,10 +1,3 @@
-import { Montserrat } from 'next/font/google'
- 
-const font = Montserrat({ 
-  subsets: ['latin'] })
-
-
-
 
 export const viewport = {
   width: 'device-width',
