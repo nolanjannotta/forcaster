@@ -82,7 +82,7 @@ async function getResponse(request) {
             const lines = wordWrap(day.day.condition.text, 12)
             let icon = await  encodePNG(`https:${day.day.condition.icon}`);
             svg = `${svg}
-            <text x="${startingCenter + (width*index)}" y="250" text-anchor="middle" font-size="30">${dayOfWeek(day.date)}</text>
+            <text x="${startingCenter + (width*index)}" y="250" text-anchor="middle" font-size="25">${dayOfWeek(day.date)}</text>
             <text x="${startingCenter + (width*index)}" y="290" text-anchor="middle" font-size="25"> High:</text>
             <text x="${startingCenter + (width*index)}" y="325" text-anchor="middle" font-size="20">${day.day.maxtemp_f}°F/${day.day.maxtemp_c}°C</text>
             <text x="${startingCenter + (width*index)}" y="360" text-anchor="middle" font-size="25"> Low:</text>
