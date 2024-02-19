@@ -41,10 +41,6 @@ async function getResponse(request) {
 
     let svg = "<svg width='1200' height='630' xmlns='http://www.w3.org/2000/svg'><rect stroke='black' stroke-width='3' width='1200' height='630' fill='none'></rect>"
     
-    // let svgTest = SVG().addTo('body')
-    // svgTest.size(1200,630).rect(1200, 630).attr({stroke:"black", strokeWidth: '3', fill: 'none' });
-    // console.log(svgTest);             
-
 
     // incase no text input was sent or in case an invalid location was sent
     if(forecast.error) {
@@ -79,21 +75,21 @@ async function getResponse(request) {
         let startingCenter = 85.7;
         let width = 171.4;
         for(let [index, day] of forecast.forecast.forecastday.entries()) {
-            const lines = wordWrap(day.day.condition.text, 15)
+            const lines = wordWrap(day.day.condition.text, 12)
             let icon = await  encodePNG(`https:${day.day.condition.icon}`);
             svg = `${svg}
             <text x="${startingCenter + (width*index)}" y="250" text-anchor="middle" font-size="30">${dayOfWeek(day.date)}</text>
             <text x="${startingCenter + (width*index)}" y="290" text-anchor="middle" font-size="25"> High:</text>
-            <text x="${startingCenter + (width*index)}" y="325" text-anchor="middle" font-size="25">${day.day.maxtemp_f}°F/${day.day.maxtemp_c}°C</text>
+            <text x="${startingCenter + (width*index)}" y="325" text-anchor="middle" font-size="20">${day.day.maxtemp_f}°F/${day.day.maxtemp_c}°C</text>
             <text x="${startingCenter + (width*index)}" y="360" text-anchor="middle" font-size="25"> Low:</text>
-            <text x="${startingCenter + (width*index)}" y="395" text-anchor="middle" font-size="25">${day.day.mintemp_f}°F/${day.day.mintemp_c}°C</text>
+            <text x="${startingCenter + (width*index)}" y="395" text-anchor="middle" font-size="20">${day.day.mintemp_f}°F/${day.day.mintemp_c}°C</text>
             
             <image height="100" width="100" x="${startingCenter + (width*index) - 50}" y="480" href="${icon}"></image>
 
             <line  x1="${(width*index)}" x2="${(width*index)}" y1="230" y2="580" stroke="black"></line>
             `
             lines.forEach((line, lineIndex)=>{
-                svg =  `${svg}<text x="${startingCenter + (width*index)}" y="${430 + (30*lineIndex)}" text-anchor="middle" font-size="30">${line}</text>`
+                svg =  `${svg}<text x="${startingCenter + (width*index)}" y="${430 + (30*lineIndex)}" text-anchor="middle" font-size="25">${line}</text>`
             })
         }
 
